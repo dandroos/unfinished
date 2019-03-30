@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>order-1.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="website-order----omit-in-toc">WEBSITE ORDER <!-- omit in toc --></h1>
+<ul>
+<li><a href="#client-details">Client Details</a>
+<ul>
+<li><a href="#clients-names">Client(s) name(s)</a></li>
+<li><a href="#company">Company</a></li>
+<li><a href="#business-description">Business description</a></li>
+<li><a href="#contact-info">Contact info</a></li>
+</ul>
+</li>
+<li><a href="#specifications">Specifications</a>
+<ul>
+<li><a href="#appearance">Appearance</a>
+<ul>
+<li><a href="#fonts">Font(s)</a></li>
+<li><a href="#colours">Colours</a></li>
+<li><a href="#pages">Pages</a></li>
+</ul>
+</li>
+<li><a href="#functionality">Functionality</a>
+<ul>
+<li><a href="#content-management">Content management</a></li>
+<li><a href="#visitor-interaction">Visitor interaction</a></li>
+</ul>
+</li>
+<li><a href="#miscellaneous-requirements">Miscellaneous requirements</a></li>
+</ul>
+</li>
+<li><a href="#practical-considerations">Practical considerations</a>
+<ul>
+<li><a href="#budget">Budget</a></li>
+<li><a href="#deadline">Deadline</a></li>
+<li><a href="#ongoing-maintenance">Ongoing maintenance</a></li>
+<li><a href="#services-required">Services required</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="client-details">Client Details</h2>
+<h3 id="clients-names">Client(s) name(s)</h3>
+<p>Jody Watkins</p>
+<p><a href="#">^</a></p>
+<hr>
+<h3 id="company">Company</h3>
+<p>Bridal Elegance</p>
+<p><a href="#">^</a></p>
+<hr>
+<h3 id="business-description">Business description</h3>
+<p>Small bridal shop with in-house designer</p>
+<p><a href="#">^</a></p>
+<hr>
+<h3 id="contact-info">Contact info</h3>
+<p>42 Ivy Lane, Walton East, SA63 5QX<br>
+079 3077 9585</p>
+<p><a href="#">^</a></p>
+<hr>
+<h2 id="specifications">Specifications</h2>
+<h3 id="appearance">Appearance</h3>
+<hr>
+<h4 id="fonts">Font(s)</h4>
+<p>Arial</p>
+<p><a href="#">^</a></p>
+<h4 id="colours">Colours</h4>
+<ul>
+<li>Primary : #</li>
+<li>Secondary <em>(main accent)</em>: #</li>
+<li>Tertiary <em>(secondary accent)</em>: #</li>
+</ul>
+<p><a href="#">^</a></p>
+<h4 id="pages">Pages</h4>
+<ul>
+<li>Welcome (Splash)</li>
+<li>News/Blog (Home)</li>
+<li>Our collection</li>
+<li>About Bridal Elegance</li>
+<li>Contact</li>
+</ul>
+<p><a href="#">^</a></p>
+<hr>
+<h3 id="functionality">Functionality</h3>
+<h4 id="content-management">Content management</h4>
+<ul>
+<li><input type="checkbox" id="checkbox0"><label for="checkbox0">I want to be able to add, update and remove articles to a news/blog section.</label></li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">I want to be able to add, update and remove products.</label></li>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">Each product will have the following properties:</label>
+<ul>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3">Name</label></li>
+<li><input type="checkbox" id="checkbox4"><label for="checkbox4">Availability</label></li>
+<li><input type="checkbox" id="checkbox5"><label for="checkbox5">Price</label></li>
+<li><input type="checkbox" id="checkbox6"><label for="checkbox6">Images (up to five and with a click to enlarge option)</label></li>
+</ul>
+</li>
+<li><input type="checkbox" id="checkbox7"><label for="checkbox7">I want to be able to edit the text for static pages (including contact details) from an admin section.</label></li>
+</ul>
+<p><a href="#">^</a></p>
+<hr>
+<h4 id="visitor-interaction">Visitor interaction</h4>
+<ul>
+<li><input type="checkbox" id="checkbox8"><label for="checkbox8">Visitors should be able to contact us via phone, WhatsApp and Email.</label></li>
+<li><input type="checkbox" id="checkbox9"><label for="checkbox9">Visitors should be able to visit our Facebook, Twitter and Instagram.</label></li>
+<li><input type="checkbox" id="checkbox10"><label for="checkbox10">Visitors should be able to leave (moderated) product reviews.</label></li>
+</ul>
+<p><a href="#">^</a></p>
+<hr>
+<h3 id="miscellaneous-requirements">Miscellaneous requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Required?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accept online payment?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Additional languages?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>User authentication required?</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Audio/Video?</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#">^</a></p>
+<h2 id="practical-considerations">Practical considerations</h2>
+<h3 id="budget">Budget</h3>
+<p>Up to £500</p>
+<p><a href="#">^</a></p>
+<hr>
+<h3 id="deadline">Deadline</h3>
+<p>1 April 2019 (can be flexible)</p>
+<p><a href="#">^</a></p>
+<hr>
+<h3 id="ongoing-maintenance">Ongoing maintenance</h3>
+<p>Infrequent</p>
+<p><a href="#">^</a></p>
+<hr>
+<h3 id="services-required">Services required</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Required?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hosting</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Domain name</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Stock images</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#">^</a></p>
+
+</body>
+</html>

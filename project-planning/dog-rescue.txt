@@ -1,0 +1,91 @@
+Site Title:		Canary Islands Dog Rescue Alliance
+
+Models:		
+				Association {
+					name : string
+					address : {
+						street : string
+						town : string
+						island : string
+						postcode : number
+					contact : {
+						telephone : number	
+						email : string
+						website : string
+					capacity : number	
+				},
+
+				Dog {
+					name: string
+					dob: date					
+					age: number
+					breed: string
+					association: string					
+					status: string
+					entered_care_date: date
+					days_in_care: number
+					photos: array/list of images
+					description: string
+				},
+
+				Articles {
+					date: date.now
+					author: string (foreign key)
+					title: string
+					body: string
+					image: image
+				}
+
+				Author {
+					name: string (foreign key from User)
+					location: string
+					profile: string
+					email: string
+				}
+
+Views:
+				main { home }
+				
+				dogs {				
+					dog_profile
+					dog_list
+				}
+
+				associations {
+					association_profile
+					association_list
+				}
+
+				articles {
+					article_create
+					article_view
+					article_edit
+					article_list	
+				}
+				
+				accounts {
+					user_signup
+					user_login
+					association_signup
+					association_login
+					edit association
+				}
+
+Controllers:
+				dogs {
+					addDog
+					updateDog
+					deleteDog
+				}
+
+				associations {
+					requestAddAssociation
+					updateAssociation
+					removeAssociation
+				}
+				
+				articles {
+					addArticle
+					updateArticle
+					deleteArticle
+				}
